@@ -1,0 +1,12 @@
+apiVersion: builtin
+kind: ReplacementTransformer
+metadata:
+  name: replace-url
+replacements:
+  - source:
+      value: "base-*.nigam.cloud"
+      replacement: "prod-*.nigam.cloud"  # new property to specify the replacement value
+    targets:
+      - select: {}  # matches all objects
+        fieldPaths:
+          - "*"   # targets every field
