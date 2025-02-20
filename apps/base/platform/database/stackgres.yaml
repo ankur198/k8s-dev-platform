@@ -3,7 +3,7 @@ kind: HelmRepository
 metadata:
   name: stackgres
 spec:
-  url: https://stackgres.io/downloads/stackgres-k8s/stackgres/latest/helm
+  url: https://stackgres.io/downloads/stackgres-k8s/stackgres/helm/
   interval: 1h0m
 
 ---
@@ -17,7 +17,7 @@ spec:
   chart:
     spec:
       chart: stackgres-operator
-      version: "*"  # use the latest version
+      # version: "*"  # use the latest version
       sourceRef:
         kind: HelmRepository
         name: stackgres
