@@ -5,8 +5,10 @@ metadata:
 replacements:
   - source:
       value: "base-*.nigam.cloud"
-      replacement: "prod-*.nigam.cloud"  # new property to specify the replacement value
+      replacement: "prod-*.nigam.cloud"
     targets:
       - select: {}  # matches all objects
-        fieldPaths:
-          - "*"   # targets every field
+        # List explicit field paths where the replacement should occur:
+        # fieldPaths:
+        #   - spec.url
+        #   - metadata.name  # example additional field; add more as needed

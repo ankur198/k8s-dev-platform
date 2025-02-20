@@ -1,0 +1,23 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: stackgres
+spec:
+  url: https://stackgres.io/downloads/stackgres-k8s/stackgres/latest/helm
+  interval: 1h0m
+
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: stackgres-operator
+spec:
+  interval: 5m
+  releaseName: stackgres-operator
+  chart:
+    spec:
+      chart: stackgres-operator
+      version: "*"  # use the latest version
+      sourceRef:
+        kind: HelmRepository
+        name: stackgres

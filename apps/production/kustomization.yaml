@@ -6,6 +6,8 @@ resources:
 commonLabels:
   platform-environment: production
 
+namespace: platform-production
+
 patches:
   - target:
       group: ""
@@ -17,5 +19,5 @@ patches:
         path: /metadata/name
         value: platform-production
 
-transformers:
-  - patches/replace-url.yaml
+# transformers:
+#   - patches/replace-url.yaml
